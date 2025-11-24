@@ -9,7 +9,8 @@ public class Money: Item
 
     public Money(decimal value)
     {
+            
         Value = value;
-        Name = $"Money {Value}";
+        Name = $"{Value}";
     }
 }

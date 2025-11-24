@@ -6,8 +6,8 @@ namespace VendingApp;
 /// Вся логика автомата: хранит ассортимент, банк монет и рабочий цикл.
 public class VendingMachine
 {
-    private readonly Dictionary<string, Food> _products = new();
-    private readonly Dictionary<decimal,int>_bank = new()
+    private readonly Dictionary <string, Food> _products = new();
+    private readonly Dictionary <decimal,int> _bank = new()
     {
         {10,10}, {5,10}, {2,20}, {1,50}
     };
