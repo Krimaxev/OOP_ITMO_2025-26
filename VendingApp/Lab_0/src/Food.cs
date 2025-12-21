@@ -4,8 +4,8 @@ namespace VendingApp;
 /// Содержит цену и количество, хранит код и название
 public class Food : Item
 {
-    public decimal Price    { get; private set; }
-    public int     Quantity { get; private set; }
+    public decimal Price    { get; }
+    public int     Quantity { get; set; }
 
     public Food(string code, string name, decimal price, int qty)
     {

@@ -4,6 +4,6 @@ namespace VendingApp;
 /// все потомки (продукты, монеты и так далее).
 public  class Item
 {
-    public string Code { get; protected set;}
-    public string Name { get; protected set;}
+    public string Code { get; set;}
+    public string Name { get; set;}
 }
