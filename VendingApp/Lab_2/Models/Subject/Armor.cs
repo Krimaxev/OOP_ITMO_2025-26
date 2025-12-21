@@ -1,4 +1,3 @@
-namespace Lab_2.Models.Hero;
 
 public class Armor: Subject
 {

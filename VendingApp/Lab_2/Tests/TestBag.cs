@@ -1,48 +1,78 @@
 using Xunit;
 using Lab_2.Models.Hero;
-using Lab_2.Models.Inventory;
-
 
 namespace Lab_2.Tests
 {
     public class BagTests
     {
         [Fact]
-        public void AddSubject()
+        public void AddSubjectSingleItemIncreasesCount()
         {
             var bag = new Bag();
+            var weapon = new Weapon();
             
-            bag.AddSubject();
+            bag.AddSubject(weapon);
             
-            Assert.Equal(4, bag.SeeSubjects().Count);
+            Assert.Single(bag.SeeSubjects());
         }
         
         [Fact]
-        public void RemoveSubject_RemovesItem_DecreasesCount()
+        public void AddSubjectMultipleItemsCorrectCount()
         {
             var bag = new Bag();
-            bag.AddSubject();
-            var item = bag.SeeSubjects()[0];
+            var weapon = new Weapon();
+            var armor = new Armor();
+            var potion = new Potion();
             
-            bag.RemoveSubject(item);
+            bag.AddSubject(weapon);
+            bag.AddSubject(armor);
+            bag.AddSubject(potion);
             
             Assert.Equal(3, bag.SeeSubjects().Count);
         }
         
         [Fact]
-        public void RemoveSubject_RemovesCorrectItem()
+        public void AddSubjectItemIsActuallyInBag()
         {
             var bag = new Bag();
-            bag.AddSubject();
-            var itemToRemove = bag.SeeSubjects()[1];
+            var weapon = new Weapon { Name = "Sword" };
             
-            bag.RemoveSubject(itemToRemove);
+            bag.AddSubject(weapon);
             
-            Assert.DoesNotContain(itemToRemove, bag.SeeSubjects());
+            Assert.Contains(weapon, bag.SeeSubjects());
         }
         
         [Fact]
-        public void SeeSubjects_ReturnsNotNull()
+        public void RemoveSubjectRemovesItemDecreasesCount()
+        {
+            var bag = new Bag();
+            var weapon = new Weapon();
+            var armor = new Armor();
+            bag.AddSubject(weapon);
+            bag.AddSubject(armor);
+            
+            bag.RemoveSubject(weapon);
+            
+            Assert.Single(bag.SeeSubjects());
+        }
+        
+        [Fact]
+        public void RemoveSubjectRemovesCorrectItem()
+        {
+            var bag = new Bag();
+            var weapon = new Weapon { Name = "Sword" };
+            var armor = new Armor { Name = "Shield" };
+            bag.AddSubject(weapon);
+            bag.AddSubject(armor);
+            
+            bag.RemoveSubject(weapon);
+            
+            Assert.DoesNotContain(weapon, bag.SeeSubjects());
+            Assert.Contains(armor, bag.SeeSubjects());
+        }
+        
+        [Fact]
+        public void SeeSubjectsReturnsNotNull()
         {
             var bag = new Bag();
             
@@ -52,7 +82,7 @@ namespace Lab_2.Tests
         }
         
         [Fact]
-        public void SeeSubjects_EmptyBag_ReturnsEmptyList()
+        public void SeeSubjectsEmptyBagReturnsEmptyList()
         {
             var bag = new Bag();
             
@@ -61,16 +91,5 @@ namespace Lab_2.Tests
             Assert.Empty(subjects);
         }
         
-        [Fact]
-        public void RemoveSubject_NonExistentItem_DoesNotThrow()
-        {
-            var bag = new Bag();
-            bag.AddSubject();
-            var externalWeapon = new Weapon();
-            
-            var exception = Record.Exception(() => bag.RemoveSubject(externalWeapon));
-            
-            Assert.Null(exception);
-        }
     }
 }

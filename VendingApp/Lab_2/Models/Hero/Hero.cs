@@ -12,7 +12,6 @@ public class Hero
     private List<Potion> Potions = new List<Potion>();
     private List<QuestSubject>  QuestSubjects = new List<QuestSubject>();
     
-    public int GetHealth() => Health;
     public int GetStrong() => Strong;
     public int GetProtection() => Protection;
     public int GetWeaponsCount() => Weapons.Count;
@@ -75,7 +74,7 @@ public class Hero
             QuestSubjects.Remove(questSubject);
         }
     }
-
+ 
     public void Upgrade()
     {   
         if (Weapons.Count == 1)

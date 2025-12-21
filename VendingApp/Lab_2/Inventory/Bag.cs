@@ -1,23 +1,12 @@
 using Lab_2.Models.Hero;
-namespace Lab_2.Models.Inventory;
 
-
-public class Bag: IInventory
+public class Bag
 {
     private List<Subject> Subjects = new List<Subject>();
 
-    public void AddSubject()
+    public void AddSubject(Subject subject)
     {
-        var newWeapon = new Weapon();
-        var newArmor = new Armor();
-        var newPotion = new Potion();
-        var newQuestSubject = new QuestSubject();
-        
-        Subjects.Add(newWeapon);
-        Subjects.Add(newArmor);
-        Subjects.Add(newPotion);
-        Subjects.Add(newQuestSubject);
-        
+        Subjects.Add(subject);
     }
 
     public void RemoveSubject(Subject subject)
