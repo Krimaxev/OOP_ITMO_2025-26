@@ -10,12 +10,12 @@ public class VisitorTests
     public void TotalCostVisitor_ShouldCalculateBasicTotal()
     {
         Order order = new Order();
-        order.Products.Add(new OrderProduct 
+        order.Products.Add(new Order 
         { 
             Meal = new Meal { Price = 450 }, 
             NumProducts = 2 
         });
-        order.Products.Add(new OrderProduct 
+        order.Products.Add(new Order
         { 
             Meal = new Meal { Price = 100 }, 
             NumProducts = 3 
@@ -31,7 +31,7 @@ public class VisitorTests
     public void TaxVisitor_ShouldCalculateTotalWithTax()
     {
         Order order = new Order();
-        order.Products.Add(new OrderProduct 
+        order.Products.Add(new Order 
         { 
             Meal = new Meal { Price = 1000 }, 
             NumProducts = 1 
@@ -47,7 +47,7 @@ public class VisitorTests
     public void DiscountVisitor_ShouldCalculateTotalWithDiscount()
     {
         Order order = new Order();
-        order.Products.Add(new OrderProduct 
+        order.Products.Add(new Order
         { 
             Meal = new Meal { Price = 1000 }, 
             NumProducts = 1 
@@ -63,7 +63,7 @@ public class VisitorTests
     public void DeliveryFeeVisitor_ShouldAddDeliveryFee()
     {
         Order order = new Order();
-        order.Products.Add(new OrderProduct 
+        order.Products.Add(new Order
         { 
             Meal = new Meal { Price = 500 }, 
             NumProducts = 2 

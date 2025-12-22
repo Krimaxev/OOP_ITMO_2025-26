@@ -41,7 +41,7 @@ public class OrderBuilder : IBuilderOrder
     
         if (found == false)
         {
-            OrderProduct newProduct = new OrderProduct();
+            Order newProduct = new Order();
             newProduct.Meal = meal;
             newProduct.NumProducts = quantity;
             order.Products.Add(newProduct);

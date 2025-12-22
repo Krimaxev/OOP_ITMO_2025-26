@@ -23,7 +23,7 @@ public class AddMealCommand : ICommand
     
     public void Complete()
     {
-        OrderProduct product = null;
+        Order product = null;
         foreach (var p in order.Products)
         {
             if (p.Meal == meal)
@@ -39,7 +39,7 @@ public class AddMealCommand : ICommand
         }
         else
         {
-            order.Products.Add(new OrderProduct 
+            order.Products.Add(new Order 
             { 
                 Meal = meal, 
                 NumProducts = quantity 
@@ -62,7 +62,7 @@ public class RemoveMeal : ICommand
     
     public void Complete()
     {
-        OrderProduct product = null;
+        Order product = null;
         foreach (var p in order.Products)
         {
             if (p.Meal == meal)

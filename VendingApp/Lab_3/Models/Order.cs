@@ -6,9 +6,11 @@ public class Order
     public int ID { get; set; }
     public decimal Cost { get; set; }
     public string Address { get; set; } 
+    public Meal Meal { get; set; }
+    public int NumProducts { get; set; }
     public IOrderDelivery Stage { get; set; }
     
-    public List<OrderProduct> Products =  new List<OrderProduct>();
+    public List<Order> Products =  new List<Order>();
     
     public Order()
     {

@@ -40,7 +40,7 @@ public class CommandTests
     {
         Order order = new Order();
         Meal pizza = new Meal { Name = "Пицца", Price = 450 };
-        order.Products.Add(new OrderProduct { Meal = pizza, NumProducts = 2 });
+        order.Products.Add(new Order { Meal = pizza, NumProducts = 2 });
         
         ICommand command = new RemoveMeal(order, pizza);
         command.Complete();
@@ -52,8 +52,8 @@ public class CommandTests
     public void ClearOrder_ShouldRemoveAllProducts()
     {
         Order order = new Order();
-        order.Products.Add(new OrderProduct { Meal = new Meal(), NumProducts = 2 });
-        order.Products.Add(new OrderProduct { Meal = new Meal(), NumProducts = 1 });
+        order.Products.Add(new Order { Meal = new Meal(), NumProducts = 2 });
+        order.Products.Add(new Order { Meal = new Meal(), NumProducts = 1 });
         
         ICommand command = new ClearOrder(order);
         command.Complete();
